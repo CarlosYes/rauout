@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<title>Radio Amigos Unidos</title>
+<meta name="description" content="RAU" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<meta property="og:title" content="RAU Player" />
+<meta property="og:description" content="RAU" />
+<link rel="icon" type="image/png" href="https://i.imgur.com/nNh98kV.png" sizes="48x48" />
+<link rel="icon" type="image/png" href="https://i.imgur.com/nNh98kV.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="https://i.imgur.com/nNh98kV.png" sizes="144x144" />
+<link rel="icon" type="image/png" href="https://i.imgur.com/nNh98kV.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://i.imgur.com/nNh98kV.png" sizes="180x180"/>
+<link rel="stylesheet" href="./style.css">
+<style>
+  /* Reset completo e proteção contra seleção */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* Fundo original */
+    background: url(https://xatimg.com/image/yDgRfxUclzxB.jpg) center;
+  }
+
+  /* Contentor principal adaptável para os limites do xat.com */
+  .container {
+    display: grid;
+    grid-template-columns: minmax(140px, 300px) minmax(200px, 728px) minmax(140px, 300px);
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    gap: 20px;
+  }
+
+  /* Configuração para as imagens laterais manterem o tamanho e proporção */
+  img.side-image {
+    width: 100%;
+    height: 490px;
+    max-height: 90vh;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Imagem central com tamanho total, proteção de aspeto e subida de 10px */
+  .center-image {
+    width: 100%;
+    height: 489px;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 22px;
+    transform: translateY(-10px);
+    opacity: 0;
+    animation: fadeOpacity 30s ease-in-out infinite, glow 5s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+
+  /* Animação Fade in/out original */
+  @keyframes fadeOpacity {
+    0%   { opacity: 0; }
+    25%  { opacity: 1; }   
+    75%  { opacity: 1; }   
+    100% { opacity: 0; }   
+  }
+
+  /* Efeito Neon original */
+  @keyframes glow {
+    0% { box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
+    50% { box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff; }
+    100% { box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
+  }
+
+  /* Ajuste automático para ecrãs mais estreitos no xat.com */
+  @media (max-width: 1366px) {
+    .container {
+      grid-template-columns: 22% 50% 22%;
+      gap: 10px;
+    }
+    img.side-image, .center-image {
+      height: auto;
+      aspect-ratio: auto;
+    }
+  }
+</style>
+</head>
+<body oncontextmenu="return false;" onkeydown="return false;">
+
+<div class="container">
+  <!-- Imagem Esquerda (Substituiu o vídeo) -->
+  <img class="side-image left-image" src="https://xatimg.com/image/lX2vV7hSMVNe.png" alt="Imagem Esquerda" draggable="false" />
+
+  <!-- Imagem central -->
+  <img class="center-image" src="https://i.postimg.cc/Dw6wpSbs/2.png" alt="Imagem transparente centro" draggable="false" />
+
+  <!-- Imagem Direita (Substituiu o vídeo) -->
+  <img class="side-image right-image" src="https://xatimg.com/image/PTmXxeRF3M6s.png" alt="Imagem Direita" draggable="false" />
+</div>
+
+<script>
+  // Bloqueio de segurança contra roubo de código e inspeção
+  document.addEventListener('contextmenu', event => event.preventDefault());
+
+  document.addEventListener('keydown', function(e) {
+    if (
+      e.keyCode === 123 || 
+      (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || 
+      (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 69))
+    ) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  setInterval(function() {
+    if (window.devtools && window.devtools.isOpen) {
+      window.location.reload();
+    }
+  }, 1000);
+</script>
+
+</body>
+</html>
